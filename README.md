@@ -1,8 +1,7 @@
 # TIN175 Face Detection Using Viola-Jones Algorithm
+This project is an implementation of Viola and M. Jones (2001) object detection algorithm. There is an accompanying report describing the project, see `face-detection-report.pdf`.
 
-The [ATT Database of Faces](https://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html).
-
-The [Catalano Framework](https://github.com/DiegoCatalano/Catalano-Framework) is used only for its FastBitmap class. The library is distributed in this repo for convenience. It is licensed under LGPL and you can find it's copyright notice and full license text in `CATALANO-COPYRIGHT.txt` and `CATALANO-LICENSE.txt` respectively.
+This project is distributed without any data. Some datasets of faces to get you started with face detection are the [ATT Database of Faces](https://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html), the [CBCL Face Database #1](http://cbcl.mit.edu/software-datasets/FaceData2.html)(training data is OK, test data is bad) and the [LFW dataset](https://talhassner.github.io/home/projects/lfwa/index.html). For images without faces, we scraped images from the web. One of our web scrapers is included in `/scripts/imagecrawler/`, but it is likely to break whenever its target website changes. It is quite quick to write your own using existing libraries.
 
 ## Setup
 First, place all datasets inte the `res` folder. Path to each dataset is set in code in the `Data` class but it can be beneficial to have the following folder layout:
@@ -51,3 +50,8 @@ One thing to note is that many methods throw generic exceptions. This is done de
 ## Future improvements
 * Make single classifier training faster. Some leads:
    * Optimize feature calculation. Rectangle sum can be calculated in 4 array accesses (currently 4). Two-rectangle features can be calculated in 6 (currently 8).  Three-rectangle in 8 (not implemented).  Four-rectangle in 9 (not implemented).
+
+## Licensing
+This project is distributed under the MIT license and is as such free to use and modify as long as the copyright notice is retained. For the full license statement, see `LICENSE.txt`.
+
+The [Catalano Framework](https://github.com/DiegoCatalano/Catalano-Framework) is distributed with this library and is used only for its FastBitmap class. The library is distributed in this repo for convenience and is licensed under the LGPL license. You can find it's copyright notice and full license text in `CATALANO-COPYRIGHT.txt` and `CATALANO-LICENSE.txt` respectively.
